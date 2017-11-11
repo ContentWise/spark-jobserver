@@ -30,13 +30,16 @@ Spark Job Server can now manage python3 jobs.
 ## Spark configuration
 
 Spark installation must be configured to support python3 jobs.
+Install the following python3 packages:
+* pip3 install pyhocon
+* pip3 install py4j
 
 ## How to submit sjs-python-example file
 
 1. Create a python context factory using curl command
 
    ```
-   curl -X POST "localhost:8090/contexts/py-context?context-factory=park.jobserver.python.PythonSessionContextFactory"
+   curl -X POST "localhost:8090/contexts/py-context?context-factory=spark.jobserver.python.PythonSessionContextFactory"
    ```
 
 2. Whereas Java and Scala jobs are packaged as Jar files, Python jobs need to be packaged as `Egg` files we could push this to the server as a job binary
